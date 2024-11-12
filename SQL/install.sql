@@ -1,0 +1,18 @@
+ALTER TABLE manufacturers 
+ADD COLUMN manufacturers_gpsr_company VARCHAR(255) AFTER manufacturers_image,
+ADD COLUMN manufacturers_gpsr_contact_person VARCHAR(255) AFTER manufacturers_gpsr_company,
+ADD COLUMN manufacturers_gpsr_street VARCHAR(255) AFTER manufacturers_gpsr_contact_person,
+ADD COLUMN manufacturers_gpsr_postcode VARCHAR(10) AFTER manufacturers_gpsr_street,
+ADD COLUMN manufacturers_gpsr_city VARCHAR(255) AFTER manufacturers_gpsr_postcode,
+ADD COLUMN manufacturers_gpsr_country VARCHAR(255) AFTER manufacturers_gpsr_city,
+ADD COLUMN manufacturers_gpsr_url VARCHAR(255) AFTER manufacturers_gpsr_country,
+ADD COLUMN manufacturers_gpsr_company_noneu VARCHAR(255) AFTER manufacturers_gpsr_url,
+ADD COLUMN manufacturers_gpsr_contact_person_noneu VARCHAR(255) AFTER manufacturers_gpsr_company_noneu,
+ADD COLUMN manufacturers_gpsr_street_noneu VARCHAR(255) AFTER manufacturers_gpsr_contact_person_noneu,
+ADD COLUMN manufacturers_gpsr_postcode_noneu VARCHAR(10) AFTER manufacturers_gpsr_street_noneu,
+ADD COLUMN manufacturers_gpsr_city_noneu VARCHAR(255) AFTER manufacturers_gpsr_postcode_noneu,
+ADD COLUMN manufacturers_gpsr_country_noneu VARCHAR(255) AFTER manufacturers_gpsr_city_noneu,
+ADD COLUMN manufacturers_gpsr_url_noneu VARCHAR(255) AFTER manufacturers_gpsr_country_noneu,
+ADD COLUMN manufacturers_gpsr_additional_1 VARCHAR(255) AFTER manufacturers_gpsr_url_noneu,
+ADD COLUMN manufacturers_gpsr_additional_2 VARCHAR(255) AFTER manufacturers_gpsr_additional_1,
+ADD COLUMN manufacturers_gpsr_additional_3 VARCHAR(255) AFTER manufacturers_gpsr_additional_2;
