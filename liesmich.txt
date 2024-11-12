@@ -1,0 +1,138 @@
+GPSR Herstellerinformationen 1.0.0 für Zen Cart 1.5.7 deutsch
+
+Copyright 2024 webchills (www.webchills.at)
+General Public License
+
+Dieses Modul erweitert die Administration der Hersteller mit neuen Eingabefeldern für die von der ab 13. Dezember 2024 geltende Produktsicherheitsverordnung (GPSR) vorgesehenen erweiterten Herstellerinformationen.
+Die dort hinterlegten Daten werden dann auf der Artikeldetailseite bei Artikeln des jeweiligen Herstellers angezeigt.
+
+getestet mit:
+
+Zen Cart Version:
+1.5.7i deutsch
+
+PHP Version:
+8.3.x
+
+
+INSTALLATION:
+
+Dieses Modul ist nur für die deutsche Zen Cart 1.5.7i Version geeignet.
+Stellen Sie sicher, dass Sie Ihren Shop auf 1.5.7i aktualisiert haben, bevor Sie dieses Modul installieren.
+Die mitgelieferten geänderten Dateien dieses Moduls sind auf dem Stand von 1.5.7i!
+
+WICHTIG:
+
+Für den Einbau dieses Moduls sollten Sie über folgende Werkzeuge verfügen:
+
+1) Ein guter Texteditor
+Damit ist nicht das in Windows enthaltene Notepad oder Microsoft Word gemeint.
+Sie benötigen einen Texteditor, der utf-8 versteht und auch im Format utf-8 ohne BOM abspeichern kann.
+Empfehlung: UltraEdit (kostenlose 30 Tage Testversion verfügbar)
+Ebenfalls gut geeignet ist der kostenlose Texteditor Notepad++
+
+2) Ein Tool zum Vergleichen von Dateien
+Bei der Installation dieses Moduls ist es erforderlich, dass Sie den Inhalt einiger Ihrer bestehenden Zen Cart Dateien mit dem Inhalt der neuen Moduldateien vergleichen und die Änderungen zusammenführen ("mergen").
+Empfehlung: BeyondCompare (kostenlose 30 Tage Testversion verfügbar)
+Ebenfalls gut geeignet ist das kostenlose Programm WinMerge
+
+Empfehlung:
+
+Dieses Modul erst in einem Testsystem einbauen und dort konfigurieren/testen und endgültig an die eigenen Wünsche anpassen. Erst dann in einem Liveshop einsetzen! Sichern Sie unbedingt alle Dateien Ihres Shops per FTP und sichern Sie die Datenbank mit phpMyAdmin oder anderen geeigneten Tools!
+WICHTIG
+Vor dem Einbau dieser Änderungen:
+BACKUP von Shop und Datenbank machen!
+Keine Haftung, Verwendung auf eigene Gefahr!
+BACKUP gemacht? Ok, dann weiterlesen...
+
+Die Installation erfolgt in folgenden Schritten. Halten Sie diesen Ablauf ein.
+1.
+Die Datei install.sql im Ordner SQL mit einem Texteditor öffen und den Inhalt kopieren
+
+2.
+Zen Cart Administration öffnen und unter Tools > SQL Patches installieren den Inhalt ins Feld hineinkopieren und absenden.
+Dadurch wird die Tabelle manufacturers mit diversen Zusatzfeldern erweitert.
+
+3.
+Im Ordner GEAENDERTE DATEIEN den Ordner DEINADMIN auf den Namen Ihres Adminverzeichnisses umbenennen
+Dieses Modul ändert die Datei DEINADMIN/manufacturers.php
+Sollten Sie bereits einmal Änderungen an dieser Datei vorgenommen haben (z.B. durch den Einbau anderer Erweiterungen), dann laden Sie diese Datei keinesfalls einfach so hoch.
+Stattdessen vergleichen Sie sie mit der entsprechenden Datei in Ihrem Shop und nehmen die Änderungen manuell per WinMerge oder BeyondCompare vor.
+Ebenfalls geändert werden die Sprachdateien
+DEINADMIN/includes/languages/german/manufacturers.php
+DEINADMIN/includes/languages/english/manufacturers.php
+Auch die vergleichen Sie mit den entsprechenden Dateien in Ihrem Shop und nehmen die Änderungen manuell per WinMerge oder BeyondCompare vor.
+Laden Sie die Dateien danach in das Adminverzeichnis Ihres Shops hoch und überschreiben die bestehenden damit.
+
+4.
+Jetzt können Sie in der Administration unter Tools > Hersteller Ihre Hersteller mit den neuen Angaben überarbeiten.
+Hat der Hersteller eine Niederlassung in der EU, dann reichen die Angaben unter GPSR Zusatzinformationen.
+Falls der Hersteller keine Niederlassung in der EU hat, müssen Sie auch die Felder unter Zusatzangaben für Hersteller ohne EU Niederlassung ausfüllen.
+Falls Sie weitere Angaben machen wollen, stehen dafür noch 3 Zusatzfelder zur Verfügung.
+Überarbeiten Sie nun Ihre Hersteller.
+
+5.
+Damit Ihre neuen GPSR Daten auf der Artikeldetailseite bei den Artikeln des jeweiligen Hersteller angezeigt werden, müssen Sie nun noch Dateien im Frontend ändern und hinzufügen.
+Laden Sie den Inhalt des Ordners NEUE DATEIEN in der vorgegebenen Struktur ins Shopverzeichnis hoch.
+Dabei werden keine bestehenden Dateien überschrieben.
+
+Schauen Sie nun in den Ordner GEAENDERTE DATEIEN
+Dieses Modul ändert die Datei includes/modules/pages/product_info/main_template_vars.php
+Sollten Sie bereits einmal Änderungen an dieser Datei vorgenommen haben (z.B. durch den Einbau anderer Erweiterungen), dann laden Sie diese Datei keinesfalls einfach so hoch.
+Stattdessen vergleichen Sie sie mit der entsprechenden Datei in Ihrem Shop und nehmen die Änderungen manuell per WinMerge oder BeyondCompare vor.
+Laden Sie die Datei danach in das Verzeichnis Ihres Shops hoch und überschreiben die bestehenden damit.
+
+Auf der Artikeldetailseite muss nun noch ein neuer Bereich für die Anzeige der GPSR Infos eingefügt werden.
+
+Laden Sie folgende Datei aus Ihrem Shop herunter:
+
+includes/templates/DEINTEMPLATE/templates/tpl_product_info_display.php
+
+Öffnen Sie die Datei mit einem Texteditor
+
+Kopieren Sie den folgenden Abschnitt:
+
+<!--bof GPSR  -->
+<?php if (!empty($manufacturers_gpsr_company)) { ?>
+<ul id="productDetailsList">
+	<?php echo '<li><b>' . TEXT_MANUFACTURER_GPSR_INFO . '' . $manufacturers_name . '</b></li>'; ?>
+	<?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO . '</li>'; ?>
+	<?php echo '<li>&nbsp; </li>'; ?>
+	<?php echo '<li>' . TEXT_MANUFACTURER_GPSR_ADDRESS_INFO . '</li>'; ?>
+  <?php echo ((!empty($manufacturers_gpsr_company)) ? '<li>' . TEXT_MANUFACTURER_GPSR_COMPANY . $manufacturers_gpsr_company . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_contact_person)) ? '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_PERSON . $manufacturers_gpsr_contact_person . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_street)) ? '<li>' . TEXT_MANUFACTURER_GPSR_STREET . $manufacturers_gpsr_street . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_city)) ? '<li>' . TEXT_MANUFACTURER_GPSR_POSTCODE . $manufacturers_gpsr_postcode . ' ' . TEXT_MANUFACTURER_GPSR_CITY . $manufacturers_gpsr_city . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_country)) ? '<li>' . TEXT_MANUFACTURER_GPSR_COUNTRY . $manufacturers_gpsr_country . '</li>' : '') . "\n"; ?>
+  <?php echo '<li>&nbsp; </li>'; ?>
+  <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_URL_INFO . '</li>'; ?>
+  <?php echo ((!empty($manufacturers_gpsr_url)) ? '<li>' . TEXT_MANUFACTURER_GPSR_URL . $manufacturers_gpsr_url . '</li>' : '') . "\n"; ?>
+  <?php echo '<li>&nbsp; </li>'; ?>
+  <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO_NONEU . '</li>'; ?>
+  <?php echo '<li>&nbsp; </li>'; ?>
+  <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_ADDRESS_INFO . '</li>'; ?>
+  <?php echo ((!empty($manufacturers_gpsr_company_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_COMPANY_NONEU . $manufacturers_gpsr_company_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_contact_person_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_PERSON_NONEU . $manufacturers_gpsr_contact_person_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_street_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_STREET_NONEU . $manufacturers_gpsr_street_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_city_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_POSTCODE_NONEU . $manufacturers_gpsr_postcode_noneu . ' ' . TEXT_MANUFACTURER_GPSR_CITY_NONEU . $manufacturers_gpsr_city_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_country_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_COUNTRY_NONEU . $manufacturers_gpsr_country_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo '<li>&nbsp; </li>'; ?>
+  <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_URL_INFO . '</li>'; ?>
+  <?php echo ((!empty($manufacturers_gpsr_url_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_URL_NONEU . $manufacturers_gpsr_url_noneu . '</li>' : '') . "\n"; ?>
+  <?php echo '<li>&nbsp; </li>'; ?>
+  <?php echo ((!empty($manufacturers_gpsr_additional_1)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_1 . $manufacturers_gpsr_additional_1 . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_additional_2)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_2 . $manufacturers_gpsr_additional_2 . '</li>' : '') . "\n"; ?>
+  <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
+</ul>
+<?php } ?>
+<!--eof GPSR -->
+
+Und fügen ihn dann an der gewünschten Stelle in ihre includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php ein.
+
+Im Ordner GEAENDERTE DATEIEN finden Sie eine bereits angepasste includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php auf Basis von responsive_classic, die den Bereich unterhalb der Artikelbeschreibung anzeigt.
+
+Laden Sie nun ihre geänderte includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php hoch und überschreiben die bestehende damit.
+
+Jetzt wird auf der Artikeldetailseite die für den jeweiligen Hersteller hinterlegte Info angezeigt.
+Die Anzeige wird nur aktiv, wenn zumindest das Feld Firmenname ausgefüllt ist.
+
