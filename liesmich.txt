@@ -3,7 +3,7 @@ GPSR Herstellerinformationen 1.0.0 für Zen Cart 1.5.7 deutsch
 Copyright 2024 webchills (www.webchills.at)
 General Public License
 
-Dieses Modul erweitert die Administration der Hersteller mit neuen Eingabefeldern für die von der ab 13. Dezember 2024 geltende Produktsicherheitsverordnung (GPSR) vorgesehenen erweiterten Herstellerinformationen.
+Dieses Modul erweitert die Administration der Hersteller mit neuen Eingabefeldern für die von der ab 13. Dezember 2024 geltenden Produktsicherheitsverordnung (GPSR) vorgesehenen erweiterten Herstellerinformationen.
 Die dort hinterlegten Daten werden dann auf der Artikeldetailseite bei Artikeln des jeweiligen Herstellers angezeigt.
 
 getestet mit:
