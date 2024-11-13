@@ -94,6 +94,7 @@ Kopieren Sie den folgenden Abschnitt:
 
 <!--bof GPSR  -->
 <?php if (!empty($manufacturers_gpsr_company)) { ?>
+<div id="gpsrinfo">
 <ul id="productDetailsList">
 	<?php echo '<li><b>' . TEXT_MANUFACTURER_GPSR_INFO . '' . $manufacturers_name . '</b></li>'; ?>
 	<?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO . '</li>'; ?>
@@ -124,6 +125,7 @@ Kopieren Sie den folgenden Abschnitt:
   <?php echo ((!empty($manufacturers_gpsr_additional_2)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_2 . $manufacturers_gpsr_additional_2 . '</li>' : '') . "\n"; ?>
   <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
 </ul>
+</div>
 <?php } ?>
 <!--eof GPSR -->
 
@@ -135,4 +137,27 @@ Laden Sie nun ihre geänderte includes/templates/DEINTEMPLATE/templates/tpl_prod
 
 Jetzt wird auf der Artikeldetailseite die für den jeweiligen Hersteller hinterlegte Info angezeigt.
 Die Anzeige wird nur aktiv, wenn zumindest das Feld Firmenname ausgefüllt ist.
+
+WICHTIG:
+Die Anzeige ist als Liste vorgesehen.
+Hier sind Aufzählungspunkte nicht gewünscht, daher fügen Sie nun noch folgende Definitionen in Ihr Stylesheet includes/templates/DEINTEMPLATE/css/stylesheet.css ein:
+
+#gpsrinfo{
+	clear:both;	
+	margin:0;
+	padding:0;	
+}
+
+#gpsrDetailsList li{
+list-style-type:none;
+}
+
+#gpsrDetailsList{
+margin:0 0 20px 16px;
+padding:0;
+font-size:12px;
+text-align:left;	
+}
+
+Nach Ihren Wünschen anpassen.
 

@@ -9,7 +9,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_product_info_display.php for GPSR 2024-11-12 18:26:36Z webchills $
+ * @version $Id: tpl_product_info_display.php for GPSR 2024-11-13 05:51:36Z webchills $
  */
 
 //require(DIR_WS_MODULES . '/debug_blocks/product_info_prices.php');
@@ -191,7 +191,8 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
 
 <!--bof GPSR  -->
 <?php if (!empty($manufacturers_gpsr_company)) { ?>
-<ul id="productDetailsList">
+<div id="gpsrinfo" class="productGeneral">
+<ul id="gpsrDetailsList">
 	<?php echo '<li><b>' . TEXT_MANUFACTURER_GPSR_INFO . '' . $manufacturers_name . '</b></li>'; ?>
 	<?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO . '</li>'; ?>
 	<?php echo '<li>&nbsp; </li>'; ?>
@@ -221,6 +222,7 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
   <?php echo ((!empty($manufacturers_gpsr_additional_2)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_2 . $manufacturers_gpsr_additional_2 . '</li>' : '') . "\n"; ?>
   <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
 </ul>
+</div>
 <?php } ?>
 <!--eof GPSR -->
 
