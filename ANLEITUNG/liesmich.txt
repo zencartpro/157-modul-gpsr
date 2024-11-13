@@ -6,6 +6,12 @@ General Public License
 Dieses Modul erweitert die Administration der Hersteller mit neuen Eingabefeldern für die von der ab 13. Dezember 2024 geltenden Produktsicherheitsverordnung (GPSR) vorgesehenen erweiterten Herstellerinformationen.
 Die dort hinterlegten Daten werden dann auf der Artikeldetailseite bei Artikeln des jeweiligen Herstellers angezeigt.
 
+Beispiel für Hersteller mit Niederlassung in der EU:
+https://gpsr.zencartdemo.at/index.php?main_page=product_info&cPath=3_12&products_id=7
+
+Beispiel für Hersteller ohne Niederlassung in der EU:
+https://gpsr.zencartdemo.at/index.php?main_page=product_info&cPath=1_5&products_id=27
+
 getestet mit:
 
 Zen Cart Version:
@@ -94,8 +100,8 @@ Kopieren Sie den folgenden Abschnitt:
 
 <!--bof GPSR  -->
 <?php if (!empty($manufacturers_gpsr_company)) { ?>
-<div id="gpsrinfo">
-<ul id="productDetailsList">
+<div id="gpsrinfo" class="productGeneral">
+<ul id="gpsrDetailsList">
 	<?php echo '<li><b>' . TEXT_MANUFACTURER_GPSR_INFO . '' . $manufacturers_name . '</b></li>'; ?>
 	<?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO . '</li>'; ?>
 	<?php echo '<li>&nbsp; </li>'; ?>
@@ -108,6 +114,7 @@ Kopieren Sie den folgenden Abschnitt:
   <?php echo '<li>&nbsp; </li>'; ?>
   <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_URL_INFO . '</li>'; ?>
   <?php echo ((!empty($manufacturers_gpsr_url)) ? '<li>' . TEXT_MANUFACTURER_GPSR_URL . $manufacturers_gpsr_url . '</li>' : '') . "\n"; ?>
+  <?php if (!empty($manufacturers_gpsr_company_noneu)) { ?>
   <?php echo '<li>&nbsp; </li>'; ?>
   <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_CONTACT_INFO_NONEU . '</li>'; ?>
   <?php echo '<li>&nbsp; </li>'; ?>
@@ -121,6 +128,7 @@ Kopieren Sie den folgenden Abschnitt:
   <?php echo '<li>' . TEXT_MANUFACTURER_GPSR_URL_INFO . '</li>'; ?>
   <?php echo ((!empty($manufacturers_gpsr_url_noneu)) ? '<li>' . TEXT_MANUFACTURER_GPSR_URL_NONEU . $manufacturers_gpsr_url_noneu . '</li>' : '') . "\n"; ?>
   <?php echo '<li>&nbsp; </li>'; ?>
+  <?php } ?>
   <?php echo ((!empty($manufacturers_gpsr_additional_1)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_1 . $manufacturers_gpsr_additional_1 . '</li>' : '') . "\n"; ?>
   <?php echo ((!empty($manufacturers_gpsr_additional_2)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_2 . $manufacturers_gpsr_additional_2 . '</li>' : '') . "\n"; ?>
   <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
@@ -159,5 +167,4 @@ font-size:12px;
 text-align:left;	
 }
 
-Nach Ihren Wünschen anpassen.
-
+Nach Ihren Wünschen anpassen, wichtig ist, dass Sie list-style-type:none; verwenden!
