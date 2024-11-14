@@ -1,4 +1,4 @@
-GPSR Herstellerinformationen 1.0.0 für Zen Cart 1.5.7 deutsch
+GPSR Herstellerinformationen 1.0.1 für Zen Cart 1.5.7 deutsch
 
 Copyright 2024 webchills (www.webchills.at)
 General Public License
@@ -75,7 +75,10 @@ Jetzt können Sie in der Administration unter Tools > Hersteller Ihre Hersteller
 Hat der Hersteller eine Niederlassung in der EU, dann reichen die Angaben unter GPSR Zusatzinformationen.
 Falls der Hersteller keine Niederlassung in der EU hat, müssen Sie auch die Felder unter Zusatzangaben für Hersteller ohne EU Niederlassung ausfüllen.
 Falls Sie weitere Angaben machen wollen, stehen dafür noch 3 Zusatzfelder zur Verfügung.
+Viele Großhändler stellen Ihnen die Daten zur Verfügung, falls Sie unsicher sind klären Sie das bitte mit Ihrem Großhändler.
 Überarbeiten Sie nun Ihre Hersteller.
+Die Felder Kontaktperson und Verantwortliche Person werden in vielen Fällen leer sein, wenn es keine dezidierte Kontaktperson gibt.
+Die Felder Firmenname müssen Sie aber auf jeden Fall befüllen, sie steuern ob die Angaben überhaupt auf der Artikeldetailseite erscheinen.
 
 5.
 Damit Ihre neuen GPSR Daten auf der Artikeldetailseite bei den Artikeln des jeweiligen Hersteller angezeigt werden, müssen Sie nun noch Dateien im Frontend ändern und hinzufügen.
