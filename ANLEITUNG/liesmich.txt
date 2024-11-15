@@ -81,6 +81,7 @@ Viele Großhändler stellen Ihnen die Daten zur Verfügung, falls Sie unsicher s
 Überarbeiten Sie nun Ihre Hersteller.
 Die Felder Hersteller Kontaktperson und Importeur Verantwortliche Person werden in vielen Fällen leer sein, wenn es keine dezidierte Kontaktperson gibt.
 Die Felder Hersteller Firmenname (und falls Hersteller nicht in der EU) Importeur Firmenname müssen Sie aber auf jeden Fall befüllen, sie steuern ob die Angaben überhaupt auf der Artikeldetailseite erscheinen.
+In der Herstellerübersicht unter Tools > Hersteller sehen Sie bei jedem Hersteller, ob Sie aktuell die GPSR Firmennamen Felder bereits befüllt haben.
 
 5.
 Damit Ihre neuen GPSR Daten auf der Artikeldetailseite bei den Artikeln des jeweiligen Hersteller angezeigt werden, müssen Sie nun noch Dateien im Frontend ändern und hinzufügen.
@@ -149,7 +150,8 @@ Im Ordner GEAENDERTE DATEIEN finden Sie eine bereits angepasste includes/templat
 Laden Sie nun ihre geänderte includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php hoch und überschreiben die bestehende damit.
 
 Jetzt wird auf der Artikeldetailseite die für den jeweiligen Hersteller hinterlegte Info angezeigt.
-Die Anzeige wird nur aktiv, wenn zumindest das Feld Firmenname ausgefüllt ist.
+Die Anzeige wird nur aktiv, wenn zumindest das Feld Hersteller Firmenname ausgefüllt ist.
+Die Importeur Daten aktivieren sich nur wenn zumindest das Feld Importeur Firmenname ausgefüllt ist.
 
 WICHTIG:
 Die Anzeige ist als Liste vorgesehen.
