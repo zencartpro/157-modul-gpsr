@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: manufacturers.php for GPSR 2024-11-12 19:30:16Z webchills $
+ * @version $Id: manufacturers.php for GPSR 2024-11-15 08:30:16Z webchills $
  */
 
 define('HEADING_TITLE', 'Manufacturers');
@@ -37,14 +37,14 @@ define('TEXT_INFO_DATE_ADDED','Date Added:');
 define('TEXT_INFO_LAST_MODIFIED','Last modified:');
 define('TEXT_INFO_EDIT_INTRO','Please make any necessary changes');
 
-define('TEXT_MANUFACTURERS_GPSR_GENERAL','<b>GPSR Additional Info:</b>');
-define('TEXT_MANUFACTURERS_GPSR_NONEU','<b>Additional Info for manufacturers outside EU:</b>');
+define('TEXT_MANUFACTURERS_GPSR_GENERAL','<b>GPSR Additional Info for Manufacturer:</b>');
+define('TEXT_MANUFACTURERS_GPSR_NONEU','<b>Additional Info about importer for manufacturers outside EU:</b>');
 define('TEXT_MANUFACTURERS_GPSR_ADDITIONAL','<b>Other optional texts:</b>');
 
-define('TEXT_MANUFACTURERS_GPSR_COMPANY','Company Name:');
-define('TEXT_MANUFACTURERS_GPSR_COMPANY_NONEU','Company Name:');
-define('TEXT_MANUFACTURERS_GPSR_CONTACT_PERSON','Contact Person:');
-define('TEXT_MANUFACTURERS_GPSR_CONTACT_PERSON_NONEU','Responsible Person:');
+define('TEXT_MANUFACTURERS_GPSR_COMPANY','Manufacturer Company Name:');
+define('TEXT_MANUFACTURERS_GPSR_COMPANY_NONEU','Importer Company Name:');
+define('TEXT_MANUFACTURERS_GPSR_CONTACT_PERSON','Manufacturer Contact Person:');
+define('TEXT_MANUFACTURERS_GPSR_CONTACT_PERSON_NONEU','Importer Responsible Person:');
 define('TEXT_MANUFACTURERS_GPSR_STREET','Street:');
 define('TEXT_MANUFACTURERS_GPSR_POSTCODE','Postcode:');
 define('TEXT_MANUFACTURERS_GPSR_CITY','City:');
