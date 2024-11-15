@@ -53,3 +53,5 @@ define('TEXT_MANUFACTURERS_GPSR_URL','Contact Website:');
 define('TEXT_MANUFACTURERS_GPSR_ADDITIONAL_1','Additional Info 1:');
 define('TEXT_MANUFACTURERS_GPSR_ADDITIONAL_2','Additional Info 2:');
 define('TEXT_MANUFACTURERS_GPSR_ADDITIONAL_3','Additional Info 3:');
+define('TABLE_HEADING_MANUFACTURER_COMPANY','GPSR Manufacturer Company Name');
+define('TABLE_HEADING_IMPORT_COMPANY','GPSR Importer Company Name');

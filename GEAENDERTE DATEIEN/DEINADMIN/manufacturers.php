@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2004 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: manufacturers.php for GPSR 2024-11-13 20:21:51Z webchills $
+ * @version $Id: manufacturers.php for GPSR 2024-11-15 08:21:51Z webchills $
  */
 require 'includes/application_top.php';
 
@@ -227,6 +227,8 @@ if (!empty($action)) {
               <tr class="dataTableHeadingRow">
                 <th class="dataTableHeadingContent text-center"><?php echo TABLE_HEADING_ID; ?></th>
                 <th class="dataTableHeadingContent"><?php echo TABLE_HEADING_MANUFACTURERS; ?></th>
+                <th class="dataTableHeadingContent"><?php echo TABLE_HEADING_MANUFACTURER_COMPANY; ?></th>
+                <th class="dataTableHeadingContent"><?php echo TABLE_HEADING_IMPORT_COMPANY; ?></th>
                 <th class="dataTableHeadingContent text-right"><?php echo TABLE_HEADING_ACTION; ?>&nbsp;</th>
               </tr>
             </thead>
@@ -272,7 +274,9 @@ if (!empty($action)) {
                   <tr class="dataTableRow" onclick="document.location.href = '<?php echo zen_href_link(FILENAME_MANUFACTURERS, ($currentPage != 0 ? 'page=' . $currentPage . '&' : '') . 'mID=' . $manufacturer['manufacturers_id'] . '&action=edit'); ?>'" style="cursor:pointer;">
                   <?php } ?>
                   <td class="dataTableContent text-center"><?php echo $manufacturer['manufacturers_id']; ?></td>
-                  <td class="dataTableContent"><?php echo $manufacturer['manufacturers_name']; ?></td>                  
+                  <td class="dataTableContent"><?php echo $manufacturer['manufacturers_name']; ?></td>  
+                  <td class="dataTableContent"><?php echo $manufacturer['manufacturers_gpsr_company']; ?></td>
+                  <td class="dataTableContent"><?php echo $manufacturer['manufacturers_gpsr_company_noneu']; ?></td>                
                   <td class="dataTableContent text-right">
                     <a href="<?php echo zen_href_link(FILENAME_MANUFACTURERS, ($currentPage != 0 ? 'page=' . $currentPage . '&' : '') . 'mID=' . $manufacturer['manufacturers_id'] . '&action=edit'); ?>" title="<?php echo ICON_EDIT; ?>" role="button">
                       <div class="fa-stack fa-fw">
