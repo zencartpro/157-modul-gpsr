@@ -1,3 +1,7 @@
+##################################################################################
+# GPSR Herstellerinformationen 1.0.3 INSTALL - 2024-11-18 - webchills
+##################################################################################
+
 ALTER TABLE manufacturers 
 ADD COLUMN manufacturers_gpsr_company VARCHAR(255) AFTER manufacturers_image,
 ADD COLUMN manufacturers_gpsr_contact_person VARCHAR(255) AFTER manufacturers_gpsr_company,
@@ -16,3 +20,9 @@ ADD COLUMN manufacturers_gpsr_url_noneu VARCHAR(255) AFTER manufacturers_gpsr_co
 ADD COLUMN manufacturers_gpsr_additional_1 VARCHAR(255) AFTER manufacturers_gpsr_url_noneu,
 ADD COLUMN manufacturers_gpsr_additional_2 VARCHAR(255) AFTER manufacturers_gpsr_additional_1,
 ADD COLUMN manufacturers_gpsr_additional_3 VARCHAR(255) AFTER manufacturers_gpsr_additional_2;
+
+INSERT IGNORE INTO product_type_layout (configuration_title, configuration_key, configuration_value, configuration_description, product_type_id, sort_order, date_added, set_function, last_modified) VALUES
+('Show GPSR Manufacturer Info', 'SHOW_PRODUCT_INFO_GPSR', '0', 'Should the extended GPSR manufacturer information stored under Webshop > Manufacturer be displayed on the item detail page?<br>0= off 1= on', 1, 3, NOW(), 'zen_cfg_select_drop_down(array(array(\'id\'=>\'1\', \'text\'=>\'True\'), array(\'id\'=>\'0\', \'text\'=>\'False\')), ', NOW());
+
+REPLACE INTO product_type_layout_language (configuration_title, configuration_key, languages_id, configuration_description, last_modified, date_added) VALUES
+('GPSR Herstellerinfo anzeigen', 'SHOW_PRODUCT_INFO_GPSR', 43, 'Sollen die unter Webshop > Hersteller hinterlegten erweiterten GPSR Herstellerinformationen auf der Artikeldetailseite angezeigt werden?<br/> 0= AUS 1= AN', NOW(), NOW());

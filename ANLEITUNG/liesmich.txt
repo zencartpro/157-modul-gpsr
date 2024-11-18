@@ -1,4 +1,4 @@
-GPSR Herstellerinformationen 1.0.2 für Zen Cart 1.5.7 deutsch
+GPSR Herstellerinformationen 1.0.3 für Zen Cart 1.5.7 deutsch
 
 Copyright 2024 webchills (www.webchills.at)
 General Public License
@@ -57,7 +57,7 @@ Die Datei install.sql im Ordner SQL mit einem Texteditor öffen und den Inhalt k
 
 2.
 Zen Cart Administration öffnen und unter Tools > SQL Patches installieren den Inhalt ins Feld hineinkopieren und absenden.
-Dadurch wird die Tabelle manufacturers mit diversen Zusatzfeldern erweitert.
+Dadurch wird die Tabelle manufacturers mit diversen Zusatzfeldern erweitert und ein genereller Schalter für die GPSR-Anzeige im Frontend angelegt.
 
 3.
 Im Ordner GEAENDERTE DATEIEN den Ordner DEINADMIN auf den Namen Ihres Adminverzeichnisses umbenennen
@@ -148,6 +148,9 @@ Und fügen ihn dann an der gewünschten Stelle in ihre includes/templates/DEINTE
 Im Ordner GEAENDERTE DATEIEN finden Sie eine bereits angepasste includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php auf Basis von responsive_classic, die den Bereich unterhalb der Artikelbeschreibung anzeigt.
 
 Laden Sie nun ihre geänderte includes/templates/DEINTEMPLATE/templates/tpl_product_info_default.php hoch und überschreiben die bestehende damit.
+
+Zuletzt gehen Sie in der Shopadministration auf Webshop > Artikeltypen und beim Artikeltyp Product - General auf Layouteinstellungen.
+Hier aktivieren Sie nun die Anzeige bei GPSR Herstellerinfo anzeigen.
 
 Jetzt wird auf der Artikeldetailseite die für den jeweiligen Hersteller hinterlegte Info angezeigt.
 Die Anzeige wird nur aktiv, wenn zumindest das Feld Hersteller Firmenname ausgefüllt ist.

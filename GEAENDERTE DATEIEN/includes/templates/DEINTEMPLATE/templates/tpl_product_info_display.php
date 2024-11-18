@@ -9,7 +9,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_product_info_display.php for GPSR 2024-11-13 05:51:36Z webchills $
+ * @version $Id: tpl_product_info_display.php for GPSR 2024-11-18 19:09:36Z webchills $
  */
 
 //require(DIR_WS_MODULES . '/debug_blocks/product_info_prices.php');
@@ -190,6 +190,7 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
 <!--eof Product description -->
 
 <!--bof GPSR  -->
+<?php if ($flag_show_gpsr) { ?>
 <?php if (!empty($manufacturers_gpsr_company)) { ?>
 <div id="gpsrinfo" class="productGeneral">
 <ul id="gpsrDetailsList">
@@ -225,6 +226,7 @@ if (CUSTOMERS_APPROVAL == 3 and TEXT_LOGIN_FOR_PRICE_BUTTON_REPLACE_SHOWROOM == 
   <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
 </ul>
 </div>
+<?php } ?>
 <?php } ?>
 <!--eof GPSR -->
 
