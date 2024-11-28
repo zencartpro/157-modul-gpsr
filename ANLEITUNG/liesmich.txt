@@ -105,6 +105,7 @@ includes/templates/DEINTEMPLATE/templates/tpl_product_info_display.php
 Kopieren Sie den folgenden Abschnitt:
 
 <!--bof GPSR  -->
+<?php if ($flag_show_gpsr) { ?>
 <?php if (!empty($manufacturers_gpsr_company)) { ?>
 <div id="gpsrinfo" class="productGeneral">
 <ul id="gpsrDetailsList">
@@ -140,6 +141,7 @@ Kopieren Sie den folgenden Abschnitt:
   <?php echo ((!empty($manufacturers_gpsr_additional_3)) ? '<li>' . TEXT_MANUFACTURER_GPSR_ADDITIONAL_3 . $manufacturers_gpsr_additional_3 . '</li>' : '') . "\n"; ?>
 </ul>
 </div>
+<?php } ?>
 <?php } ?>
 <!--eof GPSR -->
 
@@ -178,3 +180,21 @@ text-align:left;
 }
 
 Nach Ihren Wünschen anpassen, wichtig ist, dass Sie list-style-type:none; verwenden!
+
+______________________________________________________________________________________
+
+HINWEIS FÜR UPDATE DES MODULS VON 1.0.2 auf 1.0.3
+
+______________________________________________________________________________________
+
+Falls Sie das Modul bereits in Version 1.0.2 installiert haben:
+1.0.3 bringt einen generellen Admin Switch mit, um die Anzeige generell zu deaktivieren/aktivieren.
+Führen Sie via Tools > SQL Patches installieren folgenden Befehl aus, um diesen Schalter zu erzeugen:
+
+INSERT IGNORE INTO product_type_layout (configuration_title, configuration_key, configuration_value, configuration_description, product_type_id, sort_order, date_added, set_function, last_modified) VALUES
+('Show GPSR Manufacturer Info', 'SHOW_PRODUCT_INFO_GPSR', '0', 'Should the extended GPSR manufacturer information stored under Webshop > Manufacturer be displayed on the item detail page?<br>0= off 1= on', 1, 3, NOW(), 'zen_cfg_select_drop_down(array(array(\'id\'=>\'1\', \'text\'=>\'True\'), array(\'id\'=>\'0\', \'text\'=>\'False\')), ', NOW());
+
+REPLACE INTO product_type_layout_language (configuration_title, configuration_key, languages_id, configuration_description, last_modified, date_added) VALUES
+('GPSR Herstellerinfo anzeigen', 'SHOW_PRODUCT_INFO_GPSR', 43, 'Sollen die unter Webshop > Hersteller hinterlegten erweiterten GPSR Herstellerinformationen auf der Artikeldetailseite angezeigt werden?<br/> 0= AUS 1= AN', NOW(), NOW());
+
+Dadurch ist der Schalter dann unter Webshop > Artikeltypen > Product General > Layout bearbeiten verfügbar.
