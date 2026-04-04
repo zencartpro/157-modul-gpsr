@@ -1,11 +1,11 @@
 <?php
 /**
  * Zen Cart German Specific
- * @copyright Copyright 2003-2024 Zen Cart Development Team
+ * @copyright Copyright 2003-2026 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2004 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: manufacturers.php for GPSR 2024-11-15 08:21:51Z webchills $
+ * @version $Id: manufacturers.php for GPSR 2026-04-04 14:21:51Z webchills $
  */
 require 'includes/application_top.php';
 
@@ -304,11 +304,11 @@ if (!empty($action)) {
 
 ?>
 
-                    <?php if (isset($mInfo) && is_object($mInfo) && ($manufacturer['manufacturers_id'] == $mInfo->manufacturers_id)) { ?>
-                      <i class="fa fa-caret-right fa-2x fa-fw txt-navy align-middle"></i>
-                    <?php } else { ?>
+                    <?php if (isset($mInfo) && is_object($mInfo) && ($manufacturer['manufacturers_id'] == $mInfo->manufacturers_id)) {
+                      echo zen_icon('caret-right', '', '2x', true);
+                    } else { ?>
                       <a href="<?php echo zen_href_link(FILENAME_MANUFACTURERS, zen_get_all_get_params(['mID']) . 'mID=' . $manufacturer['manufacturers_id']); ?>">
-                        <i class="fa fa-info-circle fa-2x fa-fw txt-black align-middle"></i>
+                        <?php echo zen_icon('circle-info', '', '2x', true, true) ?>
                       </a>
                     <?php } ?>
                   </td>
@@ -362,7 +362,7 @@ if (!empty($action)) {
 
               $contents = ['form' => zen_draw_form('manufacturers', FILENAME_MANUFACTURERS, 'action=insert', 'post', 'enctype="multipart/form-data" class="form-horizontal"')];
               $contents[] = ['text' => TEXT_NEW_INTRO];
-              $contents[] = ['text' => zen_draw_label(TEXT_MANUFACTURERS_NAME, 'manufacturers_name', 'class="control-label"') . zen_draw_input_field('manufacturers_name', '', zen_set_field_length(TABLE_MANUFACTURERS, 'manufacturers_name') . ' class="form-control" id="manufacturers_name"')];
+              $contents[] = ['text' => zen_draw_label(TEXT_MANUFACTURERS_NAME, 'manufacturers_name', 'class="control-label"') . zen_draw_input_field('manufacturers_name', '', zen_set_field_length(TABLE_MANUFACTURERS, 'manufacturers_name') . ' class="form-control" id="manufacturers_name" required')];
               $contents[] = ['text' => zen_draw_label(TEXT_MANUFACTURERS_IMAGE, 'manufacturers_image', 'class="control-label"') . zen_draw_file_field('manufacturers_image', '', 'class="form-control" id="manufacturers_image"')];
               $dir_info = zen_build_subdirectories_array(DIR_FS_CATALOG_IMAGES);
               $default_directory = 'manufacturers/';
