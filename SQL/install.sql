@@ -1,5 +1,5 @@
 ##################################################################################
-# GPSR Herstellerinformationen 1.0.3 INSTALL - 2024-11-18 - webchills
+# GPSR Herstellerinformationen 1.0.4 INSTALL - 2026-04-05 - webchills
 ##################################################################################
 
 ALTER TABLE manufacturers 
